@@ -17,18 +17,14 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (!shared.arg || (arg_num == 0 && strcmp(shared.arg, "0") != 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		_free_stack(stack);
-		free(shared.line_buff);
-		fclose(shared.file);
+		_free_all(stack);
 		exit(EXIT_FAILURE);
 	}
 	pointer = (stack_t *) malloc(sizeof(*pointer));
 	if (!pointer)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		_free_stack(stack);
-		free(shared.line_buff);
-		fclose(shared.file);
+		_free_all(stack);
 		exit(EXIT_FAILURE);
 	}
 	pointer->n = atoi(shared.arg);
@@ -59,9 +55,7 @@ void _pop(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		fclose(shared.file);
-		free(shared.line_buff);
-		_free_stack(stack);
+		_free_all(stack);
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
@@ -103,9 +97,7 @@ void _pint(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		fclose(shared.file);
-		free(shared.line_buff);
-		_free_stack(stack);
+		_free_all(stack);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);
