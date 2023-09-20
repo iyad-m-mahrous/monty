@@ -20,10 +20,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		while (shared.arg[i])
 		{
 			if (shared.arg[i] < 48 || shared.arg[i] > 57)
-			{
 				is_int = 0;
-				break;
-			}
 			i++;
 		}
 	}
@@ -51,7 +48,6 @@ void _push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = pointer;
 		*stack = pointer;
 	}
-
 }
 
 /**
