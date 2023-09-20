@@ -1,5 +1,7 @@
 push      12 ay
-push 12
-push 
+	pall
+push -1
+pall jh
+		push 2 
 
 pall

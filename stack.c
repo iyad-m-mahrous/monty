@@ -28,6 +28,8 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (shared.arg)
 	{
 		arg_num = atoi(shared.arg);
+		if (shared.arg[0] == '-')
+			i++;
 		while (shared.arg[i])
 		{
 			if (shared.arg[i] < 48 || shared.arg[i] > 57)
