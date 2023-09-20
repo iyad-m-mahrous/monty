@@ -36,6 +36,14 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct shared_s - shared data
+ * @file: File pointer
+ * @line_buff: line read buffer
+ * @arg: the argument
+ *
+ * Description: Shared data
+ */
 typedef struct shared_s
 {
 	FILE *file;
