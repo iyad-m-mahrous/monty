@@ -10,24 +10,11 @@
 void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pointer;
-	int arg_num = -1, i = 0, is_int = 1;
+	int arg_num = -1;
 
 	if (shared.arg)
-	{
 		arg_num = atoi(shared.arg);
-		if (arg_num < 0)
-			i++;
-		while (shared.arg[i])
-		{
-			if (shared.arg[i] < 48 || shared.arg[i] > 57)
-			{
-				is_int = 0;
-				break;
-			}
-			i++;
-		}
-	}
-	if (!shared.arg || !is_int)
+	if (!shared.arg || (arg_num == 0 && strcmp(shared.arg, "0") != 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		_free_all(stack);
