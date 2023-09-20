@@ -121,5 +121,6 @@ void _pint(stack_t **stack, unsigned int line_number)
  */
 void _nop(stack_t **stack, unsigned int line_number)
 {
-	return;
+	(void) stack;
+	(void) line_number;
 }
