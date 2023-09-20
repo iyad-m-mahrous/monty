@@ -9,6 +9,6 @@
 void _free_all(stack_t **stack)
 {
 	free(shared.line_buff);
-        _free_stack(stack);
-        fclose(shared.file);
+	_free_stack(stack);
+	fclose(shared.file);
 }
