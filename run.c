@@ -19,6 +19,8 @@ void _run(stack_t **stack, int line_no)
 	};
 
 	command = strtok(shared.line_buff, " \t\n");
+	if (!command)
+		return;
 	if (command[0] == '#')
 		return;
 	shared.arg = strtok(NULL, " \t\n");
