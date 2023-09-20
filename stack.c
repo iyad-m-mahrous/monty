@@ -26,15 +26,17 @@ void _push(stack_t **stack, unsigned int line_number)
 	int arg_num = -1, i = 0, not_int = 0;
 
 	if (shared.arg)
-		arg_num = atoi(shared.arg);
-	while (shared.arg[i])
 	{
-		if (shared.arg[i] < 48 || shared.arg[i] > 57)
+		arg_num = atoi(shared.arg);
+		while (shared.arg[i])
 		{
-			not_int = 1;
-			break;
+			if (shared.arg[i] < 48 || shared.arg[i] > 57)
+			{
+				not_int = 1;
+				break;
+			}
+			i++;
 		}
-		i++;
 	}
 	if (!shared.arg || not_int)
 	{

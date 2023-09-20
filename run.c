@@ -35,8 +35,6 @@ void _run(stack_t **stack, int line_no)
 		i++;
 	}
 	fprintf(stderr, "L%d: unknown instruction %s\n", line_no, command);
-	free(shared.line_buff);
-	fclose(shared.file);
-	_free_stack(stack);
+	_free_all(stack);
 	exit(EXIT_FAILURE);
 }
