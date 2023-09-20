@@ -10,12 +10,12 @@
 void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pointer;
-	int arg_num = -1, i = 0, is_int = 1;
+	int arg_num = 1, i = 0, is_int = 1;
 
 	if (shared.arg)
 	{
 		arg_num = atoi(shared.arg);
-		if (shared.arg[0] == '-')
+		if (arg_num < 0)
 			i++;
 		while (shared.arg[i])
 		{
@@ -37,7 +37,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		_free_all(stack);
 		exit(EXIT_FAILURE);
 	}
-	pointer->n = atoi(shared.arg);
+	pointer->n = arg_num;
 	pointer->prev = NULL;
 	pointer->next = NULL;
 	if (!(*stack))
