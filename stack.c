@@ -1,19 +1,6 @@
 #include "monty.h"
 
 /**
- * _free_all - free all allocated memories and close file
- * @stack: pointer to the stack
- *
- * Return: void
- */
-void _free_all(stack_t **stack)
-{
-	_free_stack(stack);
-	free(shared.line_buff);
-	fclose(shared.file);
-}
-
-/**
  * _push - push int to stack
  * @stack: pointer to stack
  * @line_number: line number
@@ -23,34 +10,25 @@ void _free_all(stack_t **stack)
 void _push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *pointer;
-	int arg_num = -1, i = 0, not_int = 0;
+	int arg_num = -1;
 
 	if (shared.arg)
-	{
 		arg_num = atoi(shared.arg);
-		if (shared.arg[0] == '-')
-			i++;
-		while (shared.arg[i])
-		{
-			if (shared.arg[i] < 48 || shared.arg[i] > 57)
-			{
-				not_int = 1;
-				break;
-			}
-			i++;
-		}
-	}
-	if (!shared.arg || not_int)
+	if (!shared.arg || (arg_num == 0 && strcmp(shared.arg, "0") != 0))
 	{
 		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		_free_all(stack);
+		_free_stack(stack);
+		free(shared.line_buff);
+		fclose(shared.file);
 		exit(EXIT_FAILURE);
 	}
 	pointer = (stack_t *) malloc(sizeof(*pointer));
 	if (!pointer)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
-		_free_all(stack);
+		_free_stack(stack);
+		free(shared.line_buff);
+		fclose(shared.file);
 		exit(EXIT_FAILURE);
 	}
 	pointer->n = atoi(shared.arg);
@@ -64,6 +42,7 @@ void _push(stack_t **stack, unsigned int line_number)
 		(*stack)->prev = pointer;
 		*stack = pointer;
 	}
+
 }
 
 /**
@@ -80,7 +59,9 @@ void _pop(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		_free_all(stack);
+		fclose(shared.file);
+		free(shared.line_buff);
+		_free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	temp = *stack;
@@ -122,7 +103,9 @@ void _pint(stack_t **stack, unsigned int line_number)
 	if (!(*stack))
 	{
 		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
-		_free_all(stack);
+		fclose(shared.file);
+		free(shared.line_buff);
+		_free_stack(stack);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*stack)->n);

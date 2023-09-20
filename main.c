@@ -40,10 +40,12 @@ int main(int argc, char *argv[])
 		/** to be deleted **/
 		/** End **/
 	}
-	_free_all(&stack);
+	free(shared.line_buff);
+	_free_stack(&stack);
 
 
 
 	/*** END ***/
+	fclose(shared.file);
 	return (0);
 }
