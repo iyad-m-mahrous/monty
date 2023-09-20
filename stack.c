@@ -111,3 +111,15 @@ void _pint(stack_t **stack, unsigned int line_number)
 	}
 	printf("%d\n", (*stack)->n);
 }
+
+/**
+ * _nop - do nothing
+ * @stack: pointer to stack
+ * @line_number: line number
+ *
+ * Return: void
+ */
+void _nop(stack_t **stack, unsigned int line_number)
+{
+	return;
+}
