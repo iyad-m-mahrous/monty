@@ -15,7 +15,7 @@ void _push(stack_t **stack, unsigned int line_number)
 	if (shared.arg)
 	{
 		arg_num = atoi(shared.arg);
-		if (arg_num < 0)
+		if (shared.arg[0] == '-')
 			i++;
 		while (shared.arg[i])
 		{

@@ -1,4 +1,4 @@
-push      12 ay
+push      12ay
 	pall
 push -1
 pall jh
