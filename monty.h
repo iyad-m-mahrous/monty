@@ -46,6 +46,7 @@ typedef struct shared_s
 extern shared_t shared;
 void _run(stack_t **stack, int line_no);
 void _free_stack(stack_t **stack);
+void _free_all(stack_t **stack);
 void _push(stack_t **stack, unsigned int line_number);
 void _pop(stack_t **stack, unsigned int line_number);
 void _pall(stack_t **stack, unsigned int line_number);
