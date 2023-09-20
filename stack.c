@@ -89,3 +89,24 @@ void _pall(stack_t **stack, unsigned int line_number)
 		temp = temp->next;
 	}
 }
+
+
+/**
+ * _pint - prints first data of stack
+ * @stack: pointer to stack
+ * @line_number: line number
+ *
+ * Return: void
+ */
+void _pint(stack_t **stack, unsigned int line_number)
+{
+	if (!(*stack))
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fclose(shared.file);
+		free(shared.line_buff);
+		_free_stack(stack);
+		exit(EXIT_FAILURE);
+	}
+	printf("%d\n", (*stack)->n);
+}
