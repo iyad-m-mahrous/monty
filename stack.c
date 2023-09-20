@@ -34,6 +34,7 @@ void _push(stack_t **stack, unsigned int line_number)
 			not_int = 1;
 			break;
 		}
+		i++;
 	}
 	if (!shared.arg || not_int)
 	{
