@@ -78,7 +78,7 @@ void _push_stack(stack_t **stack, unsigned int line_number)
  */
 void _push_queue(stack_t **stack, unsigned int line_number)
 {
-	stack_t *pointer;
+	stack_t *pointer, *last;
 	int arg_num = 1;
 
 	(void) line_number;
@@ -98,8 +98,12 @@ void _push_queue(stack_t **stack, unsigned int line_number)
 		*stack = pointer;
 	else
 	{
-		pointer->next = *stack;
-		(*stack)->prev = pointer;
-		*stack = pointer;
+		last = *stack;
+		while (last->next)
+		{
+			last = last->next;
+		}
+		pointer->prev = last;
+		last->next = pointer;
 	}
 }
