@@ -24,6 +24,7 @@ void _run(stack_t **stack, int line_no)
 		{"mul", _mul},
 		{"mod", _mod},
 		{"pchar", _pchar},
+		{"pstr", _pstr},
 		{NULL, NULL}
 	};
 
