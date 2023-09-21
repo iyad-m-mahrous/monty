@@ -19,6 +19,7 @@ void _run(stack_t **stack, int line_no)
 		{"nop", _nop},
 		{"swap", _swap},
 		{"add", _add},
+		{"sub", _sub},
 		{NULL, NULL}
 	};
 
