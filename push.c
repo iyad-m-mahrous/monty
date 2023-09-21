@@ -22,15 +22,11 @@ void _push(stack_t **stack, unsigned int line_number)
 				flag = 1; }
 		if (flag == 1)
 		{ fprintf(stderr, "L%d: usage: push integer\n", line_number);
-			fclose(shared.file);
-			free(shared.line_buff);
-			_free_stack(stack);
+			_free_all(stack);
 			exit(EXIT_FAILURE); }}
 	else
 	{ fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		fclose(shared.file);
-		free(shared.line_buff);
-		_free_stack(stack);
+		_free_all(stack);
 		exit(EXIT_FAILURE); }
 	pointer = (stack_t *) malloc(sizeof(*pointer));
 	if (!pointer)
