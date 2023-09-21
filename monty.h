@@ -41,6 +41,7 @@ typedef struct instruction_s
  * @file: File pointer
  * @line_buff: line read buffer
  * @arg: the argument
+ * @is_q: 1 if queue otherwise 0 for stack
  *
  * Description: Shared data
  */
@@ -49,6 +50,7 @@ typedef struct shared_s
 	FILE *file;
 	char *line_buff;
 	char *arg;
+	int is_q;
 } shared_t;
 
 extern shared_t shared;
@@ -70,4 +72,6 @@ void _pchar(stack_t **stack, unsigned int line_number);
 void _pstr(stack_t **stack, unsigned int line_number);
 void _rotl(stack_t **stack, unsigned int line_number);
 void _rotr(stack_t **stack, unsigned int line_number);
+void _set_queue(stack_t **stack, unsigned int line_number);
+void _set_stack(stack_t **stack, unsigned int line_number);
 #endif

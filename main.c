@@ -1,6 +1,6 @@
 #include "monty.h"
 
-shared_t shared = {NULL, NULL, NULL};
+shared_t shared = {NULL, NULL, NULL, 0};
 
 /**
  * main - Startup function

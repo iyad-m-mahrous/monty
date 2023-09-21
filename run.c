@@ -12,22 +12,11 @@ void _run(stack_t **stack, int line_no)
 	char *command;
 	int i = 0;
 	instruction_t funcs[] = {
-		{"push", _push},
-		{"pop", _pop},
-		{"pall", _pall},
-		{"pint", _pint},
-		{"nop", _nop},
-		{"swap", _swap},
-		{"add", _add},
-		{"sub", _sub},
-		{"div", _div},
-		{"mul", _mul},
-		{"mod", _mod},
-		{"pchar", _pchar},
-		{"pstr", _pstr},
-		{"rotl", _rotl},
-		{"rotr", _rotr},
-		{NULL, NULL}
+		{"push", _push}, {"pop", _pop},	{"pall", _pall}, {"pint", _pint},
+		{"nop", _nop}, {"swap", _swap},	{"add", _add}, {"sub", _sub},
+		{"div", _div}, {"mul", _mul}, {"mod", _mod}, {"pchar", _pchar},
+		{"pstr", _pstr}, {"rotl", _rotl}, {"rotr", _rotr}, {"queue", _set_queue},
+		{"stack", _set_stack}, {NULL, NULL}
 	};
 
 	command = strtok(shared.line_buff, " \t\n");
