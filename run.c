@@ -21,6 +21,8 @@ void _run(stack_t **stack, int line_no)
 		{"add", _add},
 		{"sub", _sub},
 		{"div", _div},
+		{"mul", _mul},
+		{"mod", _mod},
 		{NULL, NULL}
 	};
 
