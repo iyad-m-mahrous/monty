@@ -26,6 +26,7 @@ void _run(stack_t **stack, int line_no)
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL}
 	};
 
