@@ -23,6 +23,7 @@ void _run(stack_t **stack, int line_no)
 		{"div", _div},
 		{"mul", _mul},
 		{"mod", _mod},
+		{"pchar", _pchar},
 		{NULL, NULL}
 	};
 
