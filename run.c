@@ -18,6 +18,7 @@ void _run(stack_t **stack, int line_no)
 		{"pint", _pint},
 		{"nop", _nop},
 		{"swap", _swap},
+		{"add", _add},
 		{NULL, NULL}
 	};
 
